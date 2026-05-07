@@ -562,8 +562,11 @@
     }
 
     function isSelected(match) {
-      const t1 = getTeamOne(match);
-      const t2 = getTeamTwo(match);
+  const t1 = getTeamOne(match);
+  const t2 = getTeamTwo(match);
+
+  return t1 === "Argentina" || t2 === "Argentina";
+}
 
       const importantTeams = [
         "Argentina",
