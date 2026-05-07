@@ -382,8 +382,8 @@
     </section>
 
     <section id="selectedMatches">
-      <h2 class="sectionTitle">Partidos seleccionados</h2>
-      <div class="loading">Cargando partidos seleccionados...</div>
+      <h2 class="sectionTitle">Partidos de Argentina</h2>
+      <div class="loading">Cargando partidos de Argentina...</div>
     </section>
 
     <section id="groupStage">
@@ -451,7 +451,7 @@
       "Brasil": "🇧🇷",
       "Marruecos": "🇲🇦",
       "Haití": "🇭🇹",
-      "Escocia": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "Escocia": "🏴",
       "Alemania": "🇩🇪",
       "Curazao": "🇨🇼",
       "Países Bajos": "🇳🇱",
@@ -477,7 +477,16 @@
       "Irán": "🇮🇷",
       "Nueva Zelanda": "🇳🇿",
       "Portugal": "🇵🇹",
-      "Italia": "🇮🇹"
+      "Italia": "🇮🇹",
+      "Arabia Saudita": "🇸🇦",
+      "Egipto": "🇪🇬",
+      "Irak": "🇮🇶",
+      "Uzbekistán": "🇺🇿",
+      "Colombia": "🇨🇴",
+      "Panamá": "🇵🇦",
+      "Ecuador": "🇪🇨",
+      "Túnez": "🇹🇳",
+      "República Democrática del Congo": "🇨🇩"
     };
 
     function getValue(match, keys, fallback = "") {
@@ -562,26 +571,10 @@
     }
 
     function isSelected(match) {
-  const t1 = getTeamOne(match);
-  const t2 = getTeamTwo(match);
+      const t1 = getTeamOne(match);
+      const t2 = getTeamTwo(match);
 
-  return t1 === "Argentina" || t2 === "Argentina";
-}
-
-      const importantTeams = [
-        "Argentina",
-        "Brasil",
-        "Uruguay",
-        "México",
-        "Estados Unidos",
-        "España",
-        "Inglaterra",
-        "Alemania",
-        "Francia",
-        "Portugal"
-      ];
-
-      return importantTeams.includes(t1) || importantTeams.includes(t2);
+      return t1 === "Argentina" || t2 === "Argentina";
     }
 
     function getUpcomingMatch(matches) {
@@ -694,7 +687,7 @@
         renderFeatured(getUpcomingMatch(ordered));
 
         document.getElementById("selectedMatches").innerHTML = `
-          <h2 class="sectionTitle">Partidos seleccionados</h2>
+          <h2 class="sectionTitle">Partidos de Argentina</h2>
           ${renderCards(selected)}
         `;
 
@@ -715,7 +708,7 @@
         `;
 
         document.getElementById("selectedMatches").innerHTML = `
-          <h2 class="sectionTitle">Partidos seleccionados</h2>
+          <h2 class="sectionTitle">Partidos de Argentina</h2>
           <div class="error">Revisá que fixture.json esté bien escrito y en la misma carpeta que index.html.</div>
         `;
 
