@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODELEC Mundial 2026</title>
 
   <style>
@@ -14,7 +14,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #020818;
+      background: #020817;
       color: white;
       overflow-x: hidden;
     }
@@ -24,7 +24,7 @@
       position: fixed;
       inset: 0;
       background:
-        linear-gradient(rgba(2, 8, 24, .75), rgba(2, 8, 24, .95)),
+        linear-gradient(rgba(2, 8, 24, .78), rgba(2, 8, 24, .95)),
         url("img/fondo.jpg") center / cover no-repeat;
       z-index: -2;
     }
@@ -33,8 +33,61 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(0, 170, 255, .35), transparent 45%);
+      background:
+        radial-gradient(circle at top, rgba(0, 180, 255, .28), transparent 42%),
+        linear-gradient(120deg, rgba(0, 60, 160, .18), transparent);
       z-index: -1;
+      pointer-events: none;
+    }
+
+    #startScreen {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0, 20, 60, .75), rgba(0, 0, 0, .92)),
+        url("img/fondo.jpg") center / cover no-repeat;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .startBox {
+      max-width: 760px;
+      padding: 34px;
+      border-radius: 28px;
+      background: rgba(0, 25, 70, .74);
+      border: 1px solid rgba(255, 255, 255, .22);
+      box-shadow: 0 0 42px rgba(0, 180, 255, .34);
+      backdrop-filter: blur(10px);
+    }
+
+    .startBox h1 {
+      font-size: clamp(34px, 6vw, 70px);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 22px #00b7ff;
+    }
+
+    .startBox p {
+      margin: 18px 0 28px;
+      color: #d9f6ff;
+      font-size: 18px;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 15px 30px;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, #00c6ff, #0047ff);
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 0 24px rgba(0, 198, 255, .65);
     }
 
     #intro {
@@ -42,7 +95,7 @@
       inset: 0;
       background: black;
       z-index: 50;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
     }
@@ -53,300 +106,240 @@
       object-fit: cover;
     }
 
-    #startScreen {
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(rgba(0, 20, 60, .75), rgba(0, 0, 0, .9)),
-        url("img/fondo.jpg") center / cover no-repeat;
-      z-index: 60;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-    }
-
-    .startBox {
-      max-width: 760px;
-      padding: 35px;
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 28px;
-      background: rgba(0, 25, 70, .72);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 40px rgba(0, 180, 255, .35);
-    }
-
-    .startBox h1 {
-      font-size: clamp(34px, 6vw, 70px);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #ffffff;
-      text-shadow: 0 0 22px #00b7ff;
-    }
-
-    .startBox p {
-      margin: 18px 0 28px;
-      color: #cdeeff;
-      font-size: 18px;
-    }
-
-    .btn {
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #00c6ff, #0047ff);
-      color: white;
-      padding: 16px 30px;
-      border-radius: 999px;
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      box-shadow: 0 0 25px rgba(0,198,255,.65);
-      transition: transform .25s, box-shadow .25s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 38px rgba(0,198,255,.95);
-    }
-
     header {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 80px 18px 34px;
       text-align: center;
-      padding: 90px 20px 40px;
-    }
-
-    .hero {
-      max-width: 980px;
     }
 
     .brand {
       display: inline-block;
+      margin-bottom: 16px;
       padding: 8px 18px;
       border-radius: 999px;
-      background: rgba(0, 150, 255, .22);
-      border: 1px solid rgba(0, 200, 255, .45);
+      background: rgba(0, 160, 255, .20);
+      border: 1px solid rgba(0, 200, 255, .42);
       color: #bfefff;
-      font-weight: 800;
-      margin-bottom: 20px;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
-    .hero h2 {
-      font-size: clamp(38px, 7vw, 86px);
+    header h1 {
+      font-size: clamp(36px, 7vw, 82px);
+      line-height: .95;
       text-transform: uppercase;
-      line-height: 1;
-      text-shadow: 0 0 30px rgba(0, 200, 255, .9);
+      text-shadow: 0 0 30px rgba(0, 210, 255, .85);
     }
 
-    .hero p {
-      margin-top: 22px;
-      font-size: 20px;
-      color: #dcefff;
+    header p {
+      margin-top: 18px;
+      color: #d8f4ff;
+      font-size: 19px;
     }
 
     main {
-      max-width: 1220px;
+      max-width: 1320px;
       margin: auto;
-      padding: 0 18px 55px;
+      padding: 0 14px 55px;
     }
 
     .sectionTitle {
-      margin: 45px 0 20px;
+      margin: 34px 0 16px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      font-size: clamp(22px, 4vw, 34px);
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: clamp(24px, 4vw, 38px);
     }
 
     .sectionTitle::before {
       content: "";
       width: 7px;
-      height: 42px;
-      background: linear-gradient(#00d4ff, #005dff);
+      height: 36px;
       border-radius: 20px;
-      box-shadow: 0 0 18px #00c6ff;
+      background: linear-gradient(#00d4ff, #005dff);
+      box-shadow: 0 0 16px #00c6ff;
     }
 
     .featured {
-      margin-top: -70px;
-      padding: 24px;
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(0,80,180,.82), rgba(0,15,45,.92));
-      border: 1px solid rgba(125,220,255,.35);
-      box-shadow: 0 0 35px rgba(0,180,255,.25);
+      margin: 8px 0 34px;
+      padding: 20px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(0, 80, 180, .82), rgba(0, 15, 45, .94));
+      border: 1px solid rgba(125, 220, 255, .35);
+      box-shadow: 0 0 34px rgba(0, 180, 255, .24);
     }
 
-    .featured h3 {
+    .featured h2 {
+      margin-bottom: 15px;
+      color: #9eeeff;
       text-transform: uppercase;
-      color: #8eeaff;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
+      font-size: 22px;
     }
 
     .featuredCard {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      gap: 18px;
+      gap: 16px;
       align-items: center;
       text-align: center;
     }
 
     .teamBig {
-      font-size: clamp(24px, 5vw, 46px);
-      font-weight: 900;
+      font-size: clamp(23px, 4vw, 42px);
+      font-weight: 1000;
       text-transform: uppercase;
     }
 
     .vs {
-      width: 74px;
-      height: 74px;
-      border-radius: 50%;
+      width: 62px;
+      height: 62px;
       display: grid;
       place-items: center;
+      border-radius: 50%;
       background: radial-gradient(circle, #ffffff, #8eeaff);
       color: #00265c;
       font-weight: 1000;
-      box-shadow: 0 0 30px rgba(0,210,255,.7);
+      box-shadow: 0 0 24px rgba(0, 210, 255, .72);
     }
 
-    .matchMeta {
-      margin-top: 18px;
+    .metaLine {
+      margin-top: 15px;
       display: flex;
       flex-wrap: wrap;
+      gap: 8px;
       justify-content: center;
-      gap: 10px;
-      color: #d9f5ff;
     }
 
     .pill {
-      padding: 8px 13px;
+      padding: 7px 11px;
       border-radius: 999px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.16);
-      font-size: 14px;
+      background: rgba(255, 255, 255, .10);
+      border: 1px solid rgba(255, 255, 255, .16);
+      color: #e5f8ff;
+      font-size: 13px;
     }
 
-    .grid {
+    .smallGrid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
     }
 
-    .card {
+    .compactCard {
       position: relative;
       overflow: hidden;
-      padding: 20px;
-      border-radius: 24px;
-      background: linear-gradient(150deg, rgba(5,35,95,.88), rgba(1,10,32,.94));
-      border: 1px solid rgba(130,220,255,.23);
-      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      padding: 13px;
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(5, 35, 95, .86), rgba(1, 10, 32, .95));
+      border: 1px solid rgba(130, 220, 255, .22);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .34);
+      min-height: 170px;
     }
 
-    .card::before {
+    .compactCard::before {
       content: "";
       position: absolute;
-      top: -70px;
-      right: -70px;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(0,200,255,.35), transparent 70%);
+      width: 110px;
+      height: 110px;
+      right: -50px;
+      top: -50px;
+      background: radial-gradient(circle, rgba(0, 200, 255, .32), transparent 70%);
     }
 
     .cardTop {
+      position: relative;
       display: flex;
       justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 16px;
+      gap: 8px;
       color: #9eeeff;
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 900;
       text-transform: uppercase;
-      font-weight: 800;
+      margin-bottom: 10px;
     }
 
     .teams {
+      position: relative;
       display: grid;
-      gap: 10px;
-      margin: 18px 0;
+      gap: 7px;
+      margin-bottom: 10px;
     }
 
     .team {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.08);
-    }
-
-    .team span:first-child {
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .08);
+      font-size: 14px;
       font-weight: 900;
-      font-size: 17px;
     }
 
     .flag {
-      font-size: 25px;
+      font-size: 20px;
     }
 
     .details {
+      position: relative;
       display: grid;
-      gap: 8px;
-      color: #d7efff;
-      font-size: 14px;
+      gap: 5px;
+      color: #d8f4ff;
+      font-size: 12px;
+      line-height: 1.25;
     }
 
     .status {
       display: inline-block;
-      margin-top: 14px;
-      padding: 8px 12px;
+      margin-top: 9px;
+      padding: 6px 9px;
       border-radius: 999px;
-      background: rgba(0,200,255,.16);
-      border: 1px solid rgba(0,200,255,.35);
+      background: rgba(0, 200, 255, .15);
+      border: 1px solid rgba(0, 200, 255, .35);
       color: #aef3ff;
-      font-weight: 800;
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 900;
       text-transform: uppercase;
     }
 
-    .finalMessage {
-      margin: 55px auto 0;
-      max-width: 900px;
-      padding: 28px;
+    .notice {
+      margin: 36px auto 0;
+      max-width: 920px;
+      padding: 23px;
       text-align: center;
-      border-radius: 28px;
+      border-radius: 24px;
       background: rgba(0, 20, 60, .78);
       border: 1px solid rgba(0, 210, 255, .35);
-      box-shadow: 0 0 28px rgba(0,180,255,.22);
+      box-shadow: 0 0 26px rgba(0, 180, 255, .20);
       color: #dcf7ff;
-      font-size: 19px;
-      line-height: 1.5;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #9ecfe8;
-      font-size: 14px;
+      font-size: 17px;
+      line-height: 1.45;
     }
 
     .loading,
     .error {
-      padding: 28px;
+      padding: 24px;
       border-radius: 20px;
-      background: rgba(0,0,0,.45);
-      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(0, 0, 0, .45);
+      border: 1px solid rgba(255, 255, 255, .15);
       color: #dff8ff;
       text-align: center;
     }
 
+    footer {
+      text-align: center;
+      padding: 34px 18px;
+      color: #9ecfe8;
+      font-size: 13px;
+    }
+
     @media (max-width: 720px) {
+      header {
+        padding-top: 58px;
+      }
+
       .featuredCard {
         grid-template-columns: 1fr;
       }
@@ -355,12 +348,8 @@
         margin: auto;
       }
 
-      header {
-        min-height: 58vh;
-      }
-
-      .featured {
-        margin-top: -30px;
+      .smallGrid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -371,40 +360,49 @@
   <section id="startScreen">
     <div class="startBox">
       <h1>TODELEC Mundial 2026</h1>
-      <p>Fixture, partidos destacados y experiencia mundialista cinematográfica.</p>
+      <p>Viví el fixture mundialista con estética FIFA / ESPN, ideal para pantallas, vidrieras y eventos.</p>
       <button class="btn" id="enterBtn">ENTRAR AL MUNDIAL</button>
     </div>
   </section>
 
-  <section id="intro" style="display:none;">
+  <section id="intro">
     <video id="introVideo" src="video/intro.mp4" playsinline></video>
   </section>
 
   <header>
-    <div class="hero">
-      <div class="brand">TODELEC PRESENTA</div>
-      <h2>Mundial FIFA 2026™</h2>
-      <p>Fixture completo, grupos, sedes y partidos camino a la gloria.</p>
-    </div>
+    <div class="brand">TODELEC PRESENTA</div>
+    <h1>Mundial FIFA 2026™</h1>
+    <p>Fixture, partidos destacados, grupos y camino a la final.</p>
   </header>
 
   <main>
     <section class="featured" id="featuredMatch">
-      <h3>Próximo partido destacado</h3>
+      <h2>Partido destacado</h2>
       <div class="loading">Cargando partido destacado...</div>
     </section>
 
-    <section id="fixtureContainer">
-      <div class="loading">Cargando fixture desde fixture.json...</div>
+    <section id="selectedMatches">
+      <h2 class="sectionTitle">Partidos seleccionados</h2>
+      <div class="loading">Cargando partidos seleccionados...</div>
     </section>
 
-    <div class="finalMessage">
+    <section id="groupStage">
+      <h2 class="sectionTitle">Fixture completo fase de grupos</h2>
+      <div class="loading">Cargando fixture completo...</div>
+    </section>
+
+    <section id="knockoutStage">
+      <h2 class="sectionTitle">Fase final</h2>
+      <div class="loading">Cargando fase final...</div>
+    </section>
+
+    <div class="notice">
       Una vez comenzado el Mundial FIFA 2026™, los resultados y estadísticas se actualizarán automáticamente en tiempo real.
     </div>
   </main>
 
   <footer>
-    TODELEC · Experiencia Mundial 2026 · Sitio preparado para GitHub Pages
+    TODELEC · Mundial 2026 · Modo pantalla gigante / proyector
   </footer>
 
   <script>
@@ -437,74 +435,50 @@
     });
 
     const flags = {
-      "Argentina": "🇦🇷",
-      "Brasil": "🇧🇷",
-      "Uruguay": "🇺🇾",
-      "Paraguay": "🇵🇾",
-      "Chile": "🇨🇱",
-      "Colombia": "🇨🇴",
-      "Ecuador": "🇪🇨",
-      "Perú": "🇵🇪",
-      "Bolivia": "🇧🇴",
-      "Venezuela": "🇻🇪",
       "México": "🇲🇽",
+      "Sudáfrica": "🇿🇦",
+      "República de Corea": "🇰🇷",
+      "Corea del Sur": "🇰🇷",
+      "República Checa": "🇨🇿",
+      "Canadá": "🇨🇦",
+      "Bosnia y Herzegovina": "🇧🇦",
       "Estados Unidos": "🇺🇸",
       "USA": "🇺🇸",
-      "Canadá": "🇨🇦",
-      "España": "🇪🇸",
-      "Francia": "🇫🇷",
-      "Alemania": "🇩🇪",
-      "Italia": "🇮🇹",
-      "Inglaterra": "🏴",
-      "Portugal": "🇵🇹",
-      "Países Bajos": "🇳🇱",
-      "Holanda": "🇳🇱",
-      "Bélgica": "🇧🇪",
-      "Croacia": "🇭🇷",
+      "Paraguay": "🇵🇾",
+      "Catar": "🇶🇦",
+      "Qatar": "🇶🇦",
+      "Suiza": "🇨🇭",
+      "Brasil": "🇧🇷",
       "Marruecos": "🇲🇦",
-      "Senegal": "🇸🇳",
-      "Nigeria": "🇳🇬",
-      "Ghana": "🇬🇭",
-      "Egipto": "🇪🇬",
+      "Haití": "🇭🇹",
+      "Escocia": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "Alemania": "🇩🇪",
+      "Curazao": "🇨🇼",
+      "Países Bajos": "🇳🇱",
       "Japón": "🇯🇵",
-      "Corea del Sur": "🇰🇷",
+      "España": "🇪🇸",
+      "Cabo Verde": "🇨🇻",
+      "Argentina": "🇦🇷",
+      "Argelia": "🇩🇿",
+      "Inglaterra": "🏴",
+      "Croacia": "🇭🇷",
+      "Costa de Marfil": "🇨🇮",
+      "Uruguay": "🇺🇾",
+      "Austria": "🇦🇹",
+      "Ghana": "🇬🇭",
+      "Suecia": "🇸🇪",
+      "Jordania": "🇯🇴",
+      "Francia": "🇫🇷",
+      "Senegal": "🇸🇳",
+      "Noruega": "🇳🇴",
       "Australia": "🇦🇺",
+      "Turquía": "🇹🇷",
+      "Bélgica": "🇧🇪",
       "Irán": "🇮🇷",
-      "Arabia Saudita": "🇸🇦",
-      "Qatar": "🇶🇦"
+      "Nueva Zelanda": "🇳🇿",
+      "Portugal": "🇵🇹",
+      "Italia": "🇮🇹"
     };
-
-    const phaseOrder = [
-      "fase de grupos",
-      "grupos",
-      "dieciseisavos",
-      "16avos",
-      "octavos",
-      "cuartos",
-      "semifinales",
-      "semifinal",
-      "final"
-    ];
-
-    const phaseTitles = {
-      "fase de grupos": "Fase de grupos",
-      "grupos": "Fase de grupos",
-      "dieciseisavos": "Dieciseisavos",
-      "16avos": "Dieciseisavos",
-      "octavos": "Octavos de final",
-      "cuartos": "Cuartos de final",
-      "semifinales": "Semifinales",
-      "semifinal": "Semifinales",
-      "final": "Final"
-    };
-
-    function normalizeText(value) {
-      return String(value || "")
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-    }
 
     function getValue(match, keys, fallback = "") {
       for (const key of keys) {
@@ -516,11 +490,15 @@
     }
 
     function getTeamOne(match) {
-      return getValue(match, ["equipo1", "local", "team1", "home", "homeTeam", "seleccion1"], "Equipo 1");
+      return getValue(match, ["local", "equipo1", "team1", "home", "homeTeam"], "Equipo 1");
     }
 
     function getTeamTwo(match) {
-      return getValue(match, ["equipo2", "visitante", "team2", "away", "awayTeam", "seleccion2"], "Equipo 2");
+      return getValue(match, ["visitante", "equipo2", "team2", "away", "awayTeam"], "Equipo 2");
+    }
+
+    function getFlag(team) {
+      return flags[team] || "🏳️";
     }
 
     function getDateValue(match) {
@@ -528,21 +506,18 @@
     }
 
     function getTimeValue(match) {
-      return getValue(match, ["hora", "time"], "Horario a confirmar");
+      return getValue(match, ["hora", "time"], "A confirmar");
     }
 
     function getPhase(match) {
-      const raw = getValue(match, ["fase", "phase", "instancia", "round"], "Fase de grupos");
-      const clean = normalizeText(raw);
+      const raw = String(getValue(match, ["fase", "phase", "instancia", "round", "grupo"], "Fase de grupos")).toLowerCase();
 
-      if (clean.includes("dieciseis") || clean.includes("16")) return "dieciseisavos";
-      if (clean.includes("octav")) return "octavos";
-      if (clean.includes("cuart")) return "cuartos";
-      if (clean.includes("semi")) return "semifinales";
-      if (clean.includes("final")) return "final";
-      if (clean.includes("grupo")) return "fase de grupos";
-
-      return clean || "fase de grupos";
+      if (raw.includes("dieciseis") || raw.includes("32")) return "Dieciseisavos";
+      if (raw.includes("octav")) return "Octavos";
+      if (raw.includes("cuart")) return "Cuartos";
+      if (raw.includes("semi")) return "Semifinales";
+      if (raw.includes("final")) return "Final";
+      return "Fase de grupos";
     }
 
     function formatDate(dateString) {
@@ -555,39 +530,65 @@
       }
 
       return date.toLocaleDateString("es-AR", {
-        weekday: "long",
+        weekday: "short",
         day: "2-digit",
-        month: "long",
+        month: "short",
         year: "numeric"
       });
     }
 
-    function getFlag(team) {
-      return flags[team] || "🏳️";
+    function getDateTime(match) {
+      const date = getDateValue(match);
+      const time = getTimeValue(match);
+      const parsed = new Date(date + "T" + time);
+
+      if (isNaN(parsed.getTime())) {
+        return new Date(date + "T00:00:00");
+      }
+
+      return parsed;
     }
 
     function sortMatches(a, b) {
-      const dateA = new Date(getDateValue(a) + "T" + getTimeValue(a));
-      const dateB = new Date(getDateValue(b) + "T" + getTimeValue(b));
+      return getDateTime(a) - getDateTime(b);
+    }
 
-      if (!isNaN(dateA) && !isNaN(dateB)) {
-        return dateA - dateB;
-      }
+    function isGroupStage(match) {
+      return getPhase(match) === "Fase de grupos";
+    }
 
-      return String(getDateValue(a)).localeCompare(String(getDateValue(b)));
+    function isKnockout(match) {
+      return getPhase(match) !== "Fase de grupos";
+    }
+
+    function isSelected(match) {
+      const t1 = getTeamOne(match);
+      const t2 = getTeamTwo(match);
+
+      const importantTeams = [
+        "Argentina",
+        "Brasil",
+        "Uruguay",
+        "México",
+        "Estados Unidos",
+        "España",
+        "Inglaterra",
+        "Alemania",
+        "Francia",
+        "Portugal"
+      ];
+
+      return importantTeams.includes(t1) || importantTeams.includes(t2);
     }
 
     function getUpcomingMatch(matches) {
       const now = new Date();
 
-      const futureMatches = matches
-        .filter(match => {
-          const d = new Date(getDateValue(match) + "T" + getTimeValue(match));
-          return !isNaN(d) && d >= now;
-        })
+      const future = matches
+        .filter(match => getDateTime(match) >= now)
         .sort(sortMatches);
 
-      return futureMatches[0] || matches.sort(sortMatches)[0];
+      return future[0] || matches.sort(sortMatches)[0];
     }
 
     function renderFeatured(match) {
@@ -595,8 +596,8 @@
 
       if (!match) {
         container.innerHTML = `
-          <h3>Próximo partido destacado</h3>
-          <div class="loading">No hay partidos cargados todavía.</div>
+          <h2>Partido destacado</h2>
+          <div class="error">No hay partidos cargados.</div>
         `;
         return;
       }
@@ -605,7 +606,7 @@
       const team2 = getTeamTwo(match);
 
       container.innerHTML = `
-        <h3>Próximo partido destacado</h3>
+        <h2>Partido destacado</h2>
 
         <div class="featuredCard">
           <div class="teamBig">${getFlag(team1)} ${team1}</div>
@@ -613,7 +614,7 @@
           <div class="teamBig">${getFlag(team2)} ${team2}</div>
         </div>
 
-        <div class="matchMeta">
+        <div class="metaLine">
           <span class="pill">${formatDate(getDateValue(match))}</span>
           <span class="pill">${getTimeValue(match)}</span>
           <span class="pill">${getValue(match, ["grupo", "group"], "Grupo a confirmar")}</span>
@@ -623,71 +624,48 @@
       `;
     }
 
-    function renderFixture(matches) {
-      const container = document.getElementById("fixtureContainer");
-
-      if (!Array.isArray(matches) || matches.length === 0) {
-        container.innerHTML = `<div class="error">No se encontraron partidos en fixture.json.</div>`;
-        return;
+    function renderCards(matches) {
+      if (!matches.length) {
+        return `<div class="error">No hay partidos cargados para esta sección.</div>`;
       }
 
-      const grouped = {};
+      return `
+        <div class="smallGrid">
+          ${matches.map(match => {
+            const team1 = getTeamOne(match);
+            const team2 = getTeamTwo(match);
 
-      matches.sort(sortMatches).forEach(match => {
-        const phase = getPhase(match);
-        if (!grouped[phase]) grouped[phase] = [];
-        grouped[phase].push(match);
-      });
-
-      const orderedPhases = Object.keys(grouped).sort((a, b) => {
-        const indexA = phaseOrder.indexOf(a);
-        const indexB = phaseOrder.indexOf(b);
-
-        return (indexA === -1 ? 99 : indexA) - (indexB === -1 ? 99 : indexB);
-      });
-
-      container.innerHTML = orderedPhases.map(phase => {
-        const title = phaseTitles[phase] || phase;
-
-        const cards = grouped[phase].map(match => {
-          const team1 = getTeamOne(match);
-          const team2 = getTeamTwo(match);
-
-          return `
-            <article class="card">
-              <div class="cardTop">
-                <span>${getValue(match, ["grupo", "group"], title)}</span>
-                <span>${formatDate(getDateValue(match))}</span>
-              </div>
-
-              <div class="teams">
-                <div class="team">
-                  <span>${team1}</span>
-                  <span class="flag">${getFlag(team1)}</span>
+            return `
+              <article class="compactCard">
+                <div class="cardTop">
+                  <span>${getValue(match, ["grupo", "group"], getPhase(match))}</span>
+                  <span>${formatDate(getDateValue(match))}</span>
                 </div>
 
-                <div class="team">
-                  <span>${team2}</span>
-                  <span class="flag">${getFlag(team2)}</span>
+                <div class="teams">
+                  <div class="team">
+                    <span>${team1}</span>
+                    <span class="flag">${getFlag(team1)}</span>
+                  </div>
+
+                  <div class="team">
+                    <span>${team2}</span>
+                    <span class="flag">${getFlag(team2)}</span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="details">
-                <div>🕘 Hora: <strong>${getTimeValue(match)}</strong></div>
-                <div>🏟️ Estadio: <strong>${getValue(match, ["estadio", "stadium"], "A confirmar")}</strong></div>
-                <div>📍 Ciudad: <strong>${getValue(match, ["ciudad", "city"], "A confirmar")}</strong></div>
-              </div>
+                <div class="details">
+                  <div>🕘 <strong>${getTimeValue(match)}</strong></div>
+                  <div>🏟️ ${getValue(match, ["estadio", "stadium"], "A confirmar")}</div>
+                  <div>📍 ${getValue(match, ["ciudad", "city"], "A confirmar")}</div>
+                </div>
 
-              <span class="status">${getValue(match, ["estado", "status"], "Programado")}</span>
-            </article>
-          `;
-        }).join("");
-
-        return `
-          <h2 class="sectionTitle">${title}</h2>
-          <div class="grid">${cards}</div>
-        `;
-      }).join("");
+                <span class="status">${getValue(match, ["estado", "status"], "Programado")}</span>
+              </article>
+            `;
+          }).join("")}
+        </div>
+      `;
     }
 
     async function loadFixture() {
@@ -704,20 +682,48 @@
           ? data
           : data.partidos || data.matches || data.fixture || [];
 
-        renderFeatured(getUpcomingMatch(matches));
-        renderFixture(matches);
+        const ordered = matches.sort(sortMatches);
 
-      } catch (error) {
-        document.getElementById("fixtureContainer").innerHTML = `
-          <div class="error">
-            No se pudo leer <strong>fixture.json</strong>.<br>
-            Revisá que el archivo esté subido en la misma carpeta que index.html.
-          </div>
+        const selected = ordered.filter(isSelected);
+        const groupStage = ordered.filter(isGroupStage);
+        const knockout = ordered.filter(isKnockout);
+
+        renderFeatured(getUpcomingMatch(ordered));
+
+        document.getElementById("selectedMatches").innerHTML = `
+          <h2 class="sectionTitle">Partidos seleccionados</h2>
+          ${renderCards(selected)}
         `;
 
+        document.getElementById("groupStage").innerHTML = `
+          <h2 class="sectionTitle">Fixture completo fase de grupos</h2>
+          ${renderCards(groupStage)}
+        `;
+
+        document.getElementById("knockoutStage").innerHTML = `
+          <h2 class="sectionTitle">Fase final</h2>
+          ${renderCards(knockout)}
+        `;
+
+      } catch (error) {
         document.getElementById("featuredMatch").innerHTML = `
-          <h3>Próximo partido destacado</h3>
+          <h2>Partido destacado</h2>
+          <div class="error">No se pudo leer fixture.json.</div>
+        `;
+
+        document.getElementById("selectedMatches").innerHTML = `
+          <h2 class="sectionTitle">Partidos seleccionados</h2>
+          <div class="error">Revisá que fixture.json esté bien escrito y en la misma carpeta que index.html.</div>
+        `;
+
+        document.getElementById("groupStage").innerHTML = `
+          <h2 class="sectionTitle">Fixture completo fase de grupos</h2>
           <div class="error">Fixture no disponible.</div>
+        `;
+
+        document.getElementById("knockoutStage").innerHTML = `
+          <h2 class="sectionTitle">Fase final</h2>
+          <div class="error">Fase final no disponible.</div>
         `;
       }
     }
