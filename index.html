@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TODELEC Mundial 2026</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#050b18;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* PANTALLA INICIAL */
+/* ========================= */
+
+#pantallaInicio{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+
+    background:
+    linear-gradient(rgba(0,0,0,.70), rgba(0,0,0,.82)),
+    url('img/fondo.jpg') center/cover;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.inicio-contenido{
+    animation:zoomInicio 2s ease;
+}
+
+@keyframes zoomInicio{
+    from{
+        transform:scale(.82);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+#pantallaInicio h1{
+    font-size:clamp(55px,10vw,120px);
+    letter-spacing:5px;
+    text-shadow:
+    0 0 15px #00aaff,
+    0 0 40px #0088ff;
+}
+
+#pantallaInicio p{
+    margin-top:18px;
+    font-size:clamp(18px,3vw,30px);
+    color:#dcecff;
+}
+
+#btnEntrar{
+    margin-top:45px;
+    padding:20px 50px;
+    border:none;
+    border-radius:60px;
+
+    background:
+    linear-gradient(135deg,#00aaff,#0044ff);
+
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+
+    box-shadow:
+    0 0 20px rgba(0,170,255,.6);
+
+    transition:.3s;
+}
+
+#btnEntrar:hover{
+    transform:scale(1.08);
+}
+
+/* ========================= */
+/* VIDEO INTRO */
+/* ========================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:black;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+#intro video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+#logoIntro{
+    position:absolute;
+    bottom:12%;
+    width:100%;
+    text-align:center;
+
+    opacity:0;
+
+    animation:logoFinal 2s ease forwards;
+    animation-delay:4s;
+}
+
+#logoIntro h1{
+    font-size:clamp(50px,8vw,100px);
+
+    text-shadow:
+    0 0 15px #00aaff,
+    0 0 35px white;
+}
+
+#logoIntro p{
+    margin-top:10px;
+    font-size:clamp(16px,3vw,28px);
+    color:#dcecff;
+}
+
+@keyframes logoFinal{
+    from{
+        opacity:0;
+        transform:scale(.7);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.ocultar{
+    animation:fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header{
+    min-height:280px;
+
+    background:
+    radial-gradient(circle at top,#1d5ed9,#050b18 72%);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:clamp(45px,8vw,90px);
+
+    text-shadow:
+    0 0 20px #00aaff;
+}
+
+header p{
+    margin-top:14px;
+    font-size:22px;
+    color:#dcecff;
+}
+
+/* ========================= */
+/* FIXTURE */
+/* ========================= */
+
+main{
+    max-width:1150px;
+    margin:auto;
+    padding:45px 20px;
+}
+
+.titulo-seccion{
+    font-size:34px;
+    margin-bottom:30px;
+
+    border-left:5px solid #00aaff;
+    padding-left:15px;
+}
+
+.fecha{
+    margin:38px 0 16px;
+    color:#7ecbff;
+    font-size:24px;
+}
+
+.partido{
+    background:
+    linear-gradient(135deg,#0b1733,#12244b);
+
+    border-radius:20px;
+
+    padding:22px;
+    margin-bottom:16px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.35);
+}
+
+.equipos{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.vs{
+    color:#00aaff;
+}
+
+.detalle{
+    margin-top:14px;
+    color:#d2ddf2;
+    font-size:15px;
+}
+
+.estado{
+    margin-top:14px;
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    background:#174683;
+
+    font-size:13px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#8191ad;
+    font-size:14px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:700px){
+
+    .equipos{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .vs{
+        margin:8px 0;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- PANTALLA INICIAL -->
+<!-- ========================= -->
+
+<section id="pantallaInicio">
+
+    <div class="inicio-contenido">
+
+        <h1>TODELEC</h1>
+
+        <p>
+            Viví el Mundial como nunca
+        </p>
+
+        <button id="btnEntrar">
+            ENTRAR AL MUNDIAL
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- INTRO VIDEO -->
+<!-- ========================= -->
+
+<section id="intro">
+
+    <video id="introVideo" playsinline>
+
+        <source src="video/intro.mp4" type="video/mp4">
+
+    </video>
+
+    <div id="logoIntro">
+
+        <h1>TODELEC</h1>
+
+        <p>
+            Fixture Mundial 2026
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+    <div>
+
+        <h1>TODELEC Mundial</h1>
+
+        <p>
+            Fixture actualizado automáticamente
+        </p>
+
+    </div>
+
+</header>
+
+<!-- ========================= -->
+<!-- FIXTURE -->
+<!-- ========================= -->
+
+<main>
+
+    <h2 class="titulo-seccion">
+        Próximos partidos
+    </h2>
+
+    <section id="fixture"></section>
+
+</main>
+
+<footer>
+
+    TODELEC · Mundial 2026
+
+</footer>
+
+<script>
+
+/* ========================= */
+/* ELEMENTOS */
+/* ========================= */
+
+const btnEntrar = document.getElementById("btnEntrar");
+const pantallaInicio = document.getElementById("pantallaInicio");
+const intro = document.getElementById("intro");
+const video = document.getElementById("introVideo");
+
+/* ========================= */
+/* BOTON ENTRAR */
+/* ========================= */
+
+btnEntrar.addEventListener("click", () => {
+
+    pantallaInicio.classList.add("ocultar");
+
+    intro.style.display = "flex";
+
+    video.volume = 1;
+
+    video.play();
+
+});
+
+/* ========================= */
+/* FIN VIDEO */
+/* ========================= */
+
+video.addEventListener("ended", () => {
+
+    intro.classList.add("ocultar");
+
+});
+
+/* ========================= */
+/* FIXTURE DEMO */
+/* ========================= */
+
+const partidos = [
+
+{
+    fecha:"Jueves 11 de junio de 2026",
+    hora:"16:00",
+    local:"México",
+    visitante:"Rival a confirmar",
+    estadio:"Estadio Azteca",
+    estado:"Programado"
+},
+
+{
+    fecha:"Viernes 12 de junio de 2026",
+    hora:"19:00",
+    local:"Estados Unidos",
+    visitante:"Rival a confirmar",
+    estadio:"A confirmar",
+    estado:"Programado"
+},
+
+{
+    fecha:"Sábado 13 de junio de 2026",
+    hora:"21:00",
+    local:"Argentina",
+    visitante:"Rival a confirmar",
+    estadio:"A confirmar",
+    estado:"Programado"
+}
+
+];
+
+function mostrarFixture(){
+
+    const fixture = document.getElementById("fixture");
+
+    let fechaActual = "";
+
+    partidos.forEach(partido => {
+
+        if(partido.fecha !== fechaActual){
+
+            fechaActual = partido.fecha;
+
+            fixture.innerHTML += `
+            
+            <h3 class="fecha">
+                ${fechaActual}
+            </h3>
+            
+            `;
+
+        }
+
+        fixture.innerHTML += `
+        
+        <div class="partido">
+
+            <div class="equipos">
+
+                <span>${partido.local}</span>
+
+                <span class="vs">VS</span>
+
+                <span>${partido.visitante}</span>
+
+            </div>
+
+            <div class="detalle">
+
+                ${partido.hora} hs · ${partido.estadio}
+
+            </div>
+
+            <span class="estado">
+
+                ${partido.estado}
+
+            </span>
+
+        </div>
+        
+        `;
+
+    });
+
+}
+
+mostrarFixture();
+
+</script>
+
+</body>
+</html>
