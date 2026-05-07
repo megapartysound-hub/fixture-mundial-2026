@@ -1,231 +1,171 @@
+```json
 [
   {
-    "fecha": "Jueves 11 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo A",
+    "fecha": "2026-06-11",
     "hora": "15:00",
     "local": "México",
     "visitante": "Sudáfrica",
-    "grupo": "Grupo A",
     "estadio": "Estadio Ciudad de México",
+    "ciudad": "Ciudad de México",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Jueves 11 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo A",
+    "fecha": "2026-06-11",
     "hora": "22:00",
     "local": "República de Corea",
     "visitante": "República Checa",
-    "grupo": "Grupo A",
     "estadio": "Estadio Guadalajara",
+    "ciudad": "Guadalajara",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Viernes 12 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo B",
+    "fecha": "2026-06-12",
     "hora": "15:00",
     "local": "Canadá",
     "visitante": "Bosnia y Herzegovina",
-    "grupo": "Grupo B",
     "estadio": "Estadio Toronto",
+    "ciudad": "Toronto",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Viernes 12 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo D",
+    "fecha": "2026-06-12",
     "hora": "21:00",
     "local": "Estados Unidos",
     "visitante": "Paraguay",
-    "grupo": "Grupo D",
     "estadio": "Estadio Los Ángeles",
+    "ciudad": "Los Ángeles",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Sábado 13 de junio 2026",
-    "hora": "15:00",
-    "local": "Catar",
-    "visitante": "Suiza",
-    "grupo": "Grupo B",
-    "estadio": "Estadio Bahía de San Francisco",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Sábado 13 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo C",
+    "fecha": "2026-06-13",
     "hora": "18:00",
     "local": "Brasil",
     "visitante": "Marruecos",
-    "grupo": "Grupo C",
     "estadio": "Estadio Nueva York Nueva Jersey",
+    "ciudad": "Nueva York",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Sábado 13 de junio 2026",
-    "hora": "21:00",
-    "local": "Haití",
-    "visitante": "Escocia",
-    "grupo": "Grupo C",
-    "estadio": "Estadio Boston",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Domingo 14 de junio 2026",
-    "hora": "13:00",
-    "local": "Alemania",
-    "visitante": "Curazao",
-    "grupo": "Grupo E",
-    "estadio": "Estadio Houston",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Domingo 14 de junio 2026",
-    "hora": "16:00",
-    "local": "Países Bajos",
-    "visitante": "Japón",
-    "grupo": "Grupo F",
-    "estadio": "Estadio Dallas",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Lunes 15 de junio 2026",
-    "hora": "12:00",
-    "local": "España",
-    "visitante": "Cabo Verde",
-    "grupo": "Grupo H",
-    "estadio": "Estadio Atlanta",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Martes 16 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo J",
+    "fecha": "2026-06-16",
     "hora": "21:00",
     "local": "Argentina",
     "visitante": "Argelia",
-    "grupo": "Grupo J",
     "estadio": "Estadio Kansas City",
+    "ciudad": "Kansas City",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Miércoles 17 de junio 2026",
-    "hora": "16:00",
-    "local": "Inglaterra",
-    "visitante": "Croacia",
-    "grupo": "Grupo L",
-    "estadio": "Estadio Dallas",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Jueves 18 de junio 2026",
-    "hora": "21:00",
-    "local": "México",
-    "visitante": "República de Corea",
-    "grupo": "Grupo A",
-    "estadio": "Estadio Guadalajara",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Viernes 19 de junio 2026",
-    "hora": "21:00",
-    "local": "Brasil",
-    "visitante": "Haití",
-    "grupo": "Grupo C",
-    "estadio": "Estadio Filadelfia",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Sábado 20 de junio 2026",
-    "hora": "16:00",
-    "local": "Alemania",
-    "visitante": "Costa de Marfil",
-    "grupo": "Grupo E",
-    "estadio": "Estadio Toronto",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Domingo 21 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo H",
+    "fecha": "2026-06-21",
     "hora": "18:00",
     "local": "Uruguay",
     "visitante": "Cabo Verde",
-    "grupo": "Grupo H",
     "estadio": "Estadio Miami",
+    "ciudad": "Miami",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Lunes 22 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo J",
+    "fecha": "2026-06-22",
     "hora": "13:00",
     "local": "Argentina",
     "visitante": "Austria",
-    "grupo": "Grupo J",
     "estadio": "Estadio Dallas",
+    "ciudad": "Dallas",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Martes 23 de junio 2026",
-    "hora": "16:00",
-    "local": "Inglaterra",
-    "visitante": "Ghana",
-    "grupo": "Grupo L",
-    "estadio": "Estadio Boston",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Miércoles 24 de junio 2026",
-    "hora": "21:00",
-    "local": "República Checa",
-    "visitante": "México",
-    "grupo": "Grupo A",
-    "estadio": "Estadio Ciudad de México",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Jueves 25 de junio 2026",
-    "hora": "19:00",
-    "local": "Japón",
-    "visitante": "Suecia",
-    "grupo": "Grupo F",
-    "estadio": "Estadio Dallas",
-    "estado": "Programado"
-  },
-
-  {
-    "fecha": "Viernes 26 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo H",
+    "fecha": "2026-06-26",
     "hora": "20:00",
     "local": "Uruguay",
     "visitante": "España",
-    "grupo": "Grupo H",
     "estadio": "Estadio Guadalajara",
+    "ciudad": "Guadalajara",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Sábado 27 de junio 2026",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo J",
+    "fecha": "2026-06-27",
     "hora": "22:00",
     "local": "Jordania",
     "visitante": "Argentina",
-    "grupo": "Grupo J",
     "estadio": "Estadio Dallas",
+    "ciudad": "Dallas",
     "estado": "Programado"
   },
 
   {
-    "fecha": "Domingo 19 de julio 2026",
-    "hora": "Final",
+    "fase": "Octavos",
+    "grupo": "Octavos",
+    "fecha": "2026-06-30",
+    "hora": "21:00",
+    "local": "1A",
+    "visitante": "2B",
+    "estadio": "Estadio Houston",
+    "ciudad": "Houston",
+    "estado": "Pendiente"
+  },
+
+  {
+    "fase": "Cuartos",
+    "grupo": "Cuartos",
+    "fecha": "2026-07-04",
+    "hora": "20:00",
+    "local": "Ganador O1",
+    "visitante": "Ganador O2",
+    "estadio": "Estadio Miami",
+    "ciudad": "Miami",
+    "estado": "Pendiente"
+  },
+
+  {
+    "fase": "Semifinales",
+    "grupo": "Semifinal",
+    "fecha": "2026-07-14",
+    "hora": "21:00",
+    "local": "Ganador C1",
+    "visitante": "Ganador C2",
+    "estadio": "Estadio Dallas",
+    "ciudad": "Dallas",
+    "estado": "Pendiente"
+  },
+
+  {
+    "fase": "Final",
+    "grupo": "Final",
+    "fecha": "2026-07-19",
+    "hora": "21:00",
     "local": "Ganador SF1",
     "visitante": "Ganador SF2",
-    "grupo": "Final",
     "estadio": "Estadio Nueva York Nueva Jersey",
+    "ciudad": "Nueva York",
     "estado": "Pendiente"
   }
 ]
+```
