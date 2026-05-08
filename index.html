@@ -167,7 +167,7 @@
     #intro video{width:100%;height:100%;object-fit:cover}
 
     header{
-      padding:44px 14px 18px;
+      padding:30px 14px 10px;
       text-align:center;
     }
     .brand{
@@ -192,21 +192,67 @@
       box-shadow:0 0 14px var(--green);
     }
     header h1{
-      max-width:680px;
-      margin:auto;
-      font-size:clamp(38px,14vw,88px);
-      line-height:.83;
+      max-width:720px;
+      margin:0 auto 0;
+      font-size:clamp(46px,15vw,98px);
+      line-height:.82;
       text-transform:uppercase;
       letter-spacing:-2px;
       text-shadow:0 0 28px rgba(57,255,136,.35);
     }
-    header p{
-      margin:14px auto 0;
-      max-width:520px;
-      color:#d6e6df;
-      font-size:15px;
-      line-height:1.4;
+    .titleGreen{
+      color:var(--green);
+      text-shadow:0 0 24px rgba(57,255,136,.45);
     }
+
+    .brandTicker{
+      width:100%;
+      overflow:hidden;
+      margin:12px 0 0;
+      border-top:1px solid rgba(57,255,136,.65);
+      border-bottom:1px solid rgba(57,255,136,.65);
+      background:linear-gradient(90deg,#9dff00,#c3ff10,#9dff00);
+      box-shadow:0 0 22px rgba(157,255,0,.35);
+    }
+    .brandTickerTrack{
+      display:flex;
+      width:max-content;
+      animation:todelecTicker 18s linear infinite;
+      will-change:transform;
+    }
+    .brandTickerItem{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      padding:8px 18px;
+      white-space:nowrap;
+      color:#061008;
+      font-size:clamp(22px,6vw,34px);
+      font-weight:1000;
+      font-style:italic;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      text-shadow:0 1px 0 rgba(255,255,255,.35);
+    }
+    .brandTickerItem .bolt{
+      color:#061008;
+      filter:drop-shadow(0 0 3px rgba(255,255,255,.45));
+    }
+    .brandTickerItem .whitePart{
+      color:#fff;
+      -webkit-text-stroke:1px rgba(0,0,0,.45);
+      text-shadow:0 2px 0 rgba(0,0,0,.45);
+    }
+    .brandTickerItem .greenPart{
+      color:#0b3;
+      -webkit-text-stroke:1px rgba(0,0,0,.45);
+      text-shadow:0 2px 0 rgba(0,0,0,.45);
+    }
+    @keyframes todelecTicker{
+      from{transform:translateX(0)}
+      to{transform:translateX(-50%)}
+    }
+
 
     .quickNav{
       position:sticky;
@@ -253,7 +299,7 @@
     }
 
     .countdownBox{
-      margin:22px auto 18px;
+      margin:18px auto 12px;
       max-width:620px;
       padding:18px 14px;
       border-radius:26px;
@@ -633,15 +679,26 @@
   </section>
 
   <header>
-    <div class="brand">TODELEC LIVE CENTER</div>
-    <h1>Mundial FIFA 2026™</h1>
-    <p>Fixture completo, resultados editables desde JSON y tabla automática por grupo.</p>
+    <h1>Mundial <span class="titleGreen">FIFA 2026™</span></h1>
 
     <div class="countdownBox">
       <h2>Cuenta regresiva al Mundial</h2>
       <div id="countdown">Cargando...</div>
     </div>
   </header>
+
+  <div class="brandTicker" aria-label="Barra TODELEC en movimiento">
+    <div class="brandTickerTrack">
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+      <div class="brandTickerItem"><span class="bolt">⚡</span><span class="whitePart">TODE</span><span class="greenPart">LEC</span><span>·</span></div>
+    </div>
+  </div>
 
   <nav class="quickNav" aria-label="Navegación principal">
     <a href="#featuredMatch">Destacado</a>
